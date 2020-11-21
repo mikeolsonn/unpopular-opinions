@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/mikeolsonn/unpopular-opinions/issues"
   },
-  "homepage": "https://github.com/mikeolsonn/unpopular-opinions#readme"
+  "homepage": "https://github.com/mikeolsonn/unpopular-opinions#readme",
+  "dependencies": {
+    "mongoose": "^5.10.15"
+  }
 }
