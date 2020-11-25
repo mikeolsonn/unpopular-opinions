@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All (Un)Popular Opinions</title>
+</head>
+<body>
+<nav>
+    <h2>All (Un)Popular Opinions</h2>
+    <ul>
+        <li>
+            <% if(user) { %>
+                <a href="/logout">Log Out</a>
+            <% } else { %>
+                <a href="/auth/google">Login With Google</a>
+            <% } %>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

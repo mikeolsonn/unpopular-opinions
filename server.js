@@ -3,14 +3,23 @@ const express = require('express');
 const port = 3000;
 
 const indexRouter = require('./routes/index');
+const opinionsRouter = require('./routes/opinions');
 
 const morgan = require('morgan');
+
+const session = require('express-session');
+
+const passport = require('passport');
 
 // create the express app
 const app = express();
 
 // configure server settings
+require('dotenv').config();
+
 require('./config/database');
+
+require('./config/passport');
 
 app.set('view engine', 'ejs');
 
@@ -19,8 +28,18 @@ app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
+app.use(session({
+    secret: 'cilantro',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // mount routes
 app.use('/', indexRouter);
+app.use('/', opinionsRouter)
 
 // tell app to listen 
 app.listen(port, function() {
