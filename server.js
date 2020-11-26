@@ -4,6 +4,7 @@ const port = 3000;
 
 const indexRouter = require('./routes/index');
 const opinionsRouter = require('./routes/opinions');
+const methodOverride = require('method-override');
 
 const morgan = require('morgan');
 
@@ -24,12 +25,13 @@ require('./config/passport');
 app.set('view engine', 'ejs');
 
 // mount middleware
+app.use(methodOverride('_method')); 
 app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
-    secret: 'cilantro',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true
 }));
@@ -39,7 +41,7 @@ app.use(passport.session());
 
 // mount routes
 app.use('/', indexRouter);
-app.use('/', opinionsRouter)
+app.use('/opinions', opinionsRouter) 
 
 // tell app to listen 
 app.listen(port, function() {

@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav>
-    <h2>All (Un)Popular Opinions</h2>
+    <h2>(Un)Popular Opinions</h2>
     <ul>
         <li>
             <% if(user) { %>
@@ -16,7 +16,31 @@
                 <a href="/auth/google">Login With Google</a>
             <% } %>
         </li>
+        <li>
+            <a href="/opinions/new">Create an Opinion</a>
+        </li>
     </ul>
 </nav>
+<h1>All (Un)Popular Opinions</h1>
+<table>
+    <thead>
+        
+        <th>Item</th>
+        <th>Rating</th>
+    </thead>
+    <tbody>
+        <% opinions.forEach(function(o) { %>
+            <tr>
+                
+                <td><%= o.itemName %></td>
+                <td><%= o.rating %></td>
+                <td><form action="/opinions/<%= o._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button></form></td>
+            </tr>
+        <% }); %>
+   
+    </tbody>
+</table>
+
 </body>
 </html>

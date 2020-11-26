@@ -1,12 +1,17 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const opinionsCtrl = require('../controllers/opinions');
 
-// GET /opinons
-router.get('/opinions', opinionsCtrl.index); // I took out isLoggedIn from in between those words
+
+router.get('/', opinionsCtrl.index); 
+router.get('/new', opinionsCtrl.new);
+router.post('/', opinionsCtrl.create);
+router.delete('/:id', opinionsCtrl.delete);
+
+
+module.exports = router;
 
 // function isLoggedIn(req, res, next) {
 //     if(req.isAuthenticated()) return next();
 //     res.redirect('/opinions');
 // };
-
-module.exports = router;
