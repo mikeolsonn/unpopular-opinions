@@ -3,7 +3,7 @@ const opinions = require('../controllers/opinions');
 
 const commentSchema = new mongoose.Schema({
     review: String,
-    rating: {type: Number, min: 1, max: 5, default: 5},
+    rating: {type: Number, min: 1, max: 5},
 }, {
     timestamps: true
 });

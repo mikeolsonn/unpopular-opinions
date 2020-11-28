@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Your Opinion</title>
+</head>
+<body>
+    <h1>Change Your Opinion</h1>
+    
+    <form action="/opinions/<%= opinionId %>?_method=PUT" method="POST">
+        <label><strong>Rating:</strong><select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </label>
+        </select>
+        <br>
+        <input type="text" name="caption" placeholder="Your NEW Opinion">
+        <input type="submit" value="Update Opinion"> 
+    </form>
+    <button><a href="/opinions">NVM</a></button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinion Details</title>
+</head>
+<body>
+    <h1>"<%= opinion.itemName %>" Details</h1>
+    <section>
+       <label>Rating:</label>
+       <div><%= opinion.rating %></div>
+       <label>Opinion: <div><%= opinion.caption %></div></label> </label>
+       
+       <ul>Comments: </ul>
+       <% opinion.comment.forEach(function(comment) { %>
+       <li><%= comment.rating %></li>
+       <li><%= comment.review %></li>
+       <% }) %>
+       <form action="/opinions/<%= opinion._id %>" method="POST">
+       <input type="text" name="review" placeholder="Add a Comment">
+       <label><strong>Rating:</strong><select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </label>
+    </select>
+    <input type="submit" value="Add Comment">
+
+       <a href="/opinions/<%= opinion._id %>/edit">Change Your Opinion</a> 
+    </section>
+</body>
+</html>
