@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const Opinion = require('../models/opinion');
-const opinion = require('../models/opinion');
+
 
 module.exports = {
     index,
@@ -14,31 +14,42 @@ module.exports = {
 };
 
 function index(req, res) {
-      Opinion.find({}, function(err, opinions) { 
-      res.render('opinions/index', { 
-        opinions,
-        user: req.user
-     });
-    });
+  User.find().populate('opinions').exec(function(err, users) {
+    console.log(users);
+    res.render('opinions/index', {
+          title: 'All Opinions', 
+          user: req.user,
+          users
+       });
+      })
   };
 
 
   function newOpinion(req, res) {
-    res.render('opinions/new');
+    res.render('opinions/new', {
+     title: 'Add Opinion',
+     user: req.user,
+   });
   };
 
   function create(req, res) {
-    const opinion = new Opinion(req.body);
-    opinion.save(function(err) {
-        
+    User.findById(req.user.id, function(err, user) {
+      console.log(`user: ${user}`);
+      
+    Opinion.create(req.body, function(err, opinion) {
+      user.opinions.push(opinion._id);
+    user.save(function(err) {
+  
         if(err) {
-            res.render('opinions/new')
+            res.render('opinions/new')   
         } else {
           console.log(opinion);
         res.redirect(`/opinions`);
         }
     });
-  };
+    });
+  });
+  }
   
   function deleteOpinion(req, res) {
     Opinion.findByIdAndDelete(req.params.id, function(err, result) {
@@ -53,14 +64,16 @@ function index(req, res) {
     Opinion.findById(req.params.id, function(err, opinion) {
       if(err) console.log(err);
       console.log(opinion);
-      res.render('opinions/show', {opinion}); 
+      res.render('opinions/show', {opinion, title: 'Opinion Details', user: req.user}); 
     });
   };
 
   function edit(req, res) {
     res.render('opinions/edit', {
       opinionId: req.params.id,
-      opinion: Opinion.findById(req.params.id)
+      opinion: Opinion.findById(req.params.id),
+      user: req.user,
+      title: 'Change Your Opinion'
      }); 
   }
 
@@ -71,11 +84,16 @@ function index(req, res) {
       res.redirect('/opinions');
     });  
   }
+
+
 function comment(req, res) {
-  Opinion.findById(req.params.id, req.body, function(err, opinion) {
+
+  Opinion.findById(req.params.id, function(err, opinion) {
+    console.log(opinion, req.body);
     opinion.comment.push(req.body);
+  
     opinion.save(function(err) {
-      res.redirect(`/opinions/${req.params.id}`, {opinion});
+      res.redirect(`/opinions/${req.params.id}`); 
       console.log(err);
     });
   });

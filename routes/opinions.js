@@ -13,6 +13,12 @@ router.get('/:id/edit', opinionsCtrl.edit);
 router.put('/:id', opinionsCtrl.update);
 router.post('/:id', opinionsCtrl.comment);
 
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
+
 
 
 // function isLoggedIn(req, res, next) {

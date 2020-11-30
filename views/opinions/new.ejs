@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post an (Un)Popular Opinion</title>
-</head>
-<body>
-    <h1>Post an (Un)Popular Opinion</h1>
+<%- include('../partials/header') %>
     <form action="/opinions" method="POST">
         <label>Item
             <input type="text" name="itemName">
@@ -17,6 +9,7 @@
                 <option value="Music">Music</option>
                 <option value="TV/Movies">TV/Movies</option>
                 <option value="Fashion">Fashion</option>
+                <option value="Miscellaneous">Miscellaneous</option>
             </select>
         </label>
         <label>Rating
@@ -35,5 +28,5 @@
         <input type="submit" value="Post">
     </form>
     <a href="/opinions"><--</a>
-</body>
-</html>
+
+<%- include('../partials/footer') %>

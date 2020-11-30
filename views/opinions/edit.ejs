@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Your Opinion</title>
-</head>
-<body>
-    <h1>Change Your Opinion</h1>
+<%- include('../partials/header') %>
     
     <form action="/opinions/<%= opinionId %>?_method=PUT" method="POST">
         <label><strong>Rating:</strong><select name="rating">
@@ -22,5 +14,5 @@
         <input type="submit" value="Update Opinion"> 
     </form>
     <button><a href="/opinions">NVM</a></button>
-</body>
-</html>
+
+<%- include('../partials/footer') %>

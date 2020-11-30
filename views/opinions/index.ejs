@@ -1,38 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All (Un)Popular Opinions</title>
-</head>
-<body>
-<nav>
-    <h2>(Un)Popular Opinions</h2>
-    <ul>
-        <li>
-            <% if(user) { %>
-                <a href="/logout">Log Out</a>
-            <% } else { %>
-                <a href="/auth/google">Login With Google</a>
-            <% } %>
-        </li>
-        <li>
-            <a href="/opinions/new">Create an Opinion</a>
-        </li>
-    </ul>
-</nav>
-<h1>All (Un)Popular Opinions</h1>
+<%- include('../partials/header') %>
 <table>
     <thead>
         
+        <th></th>
         <th></th>
         <th>Rating</th>
         <th>Opinion</th>
     </thead>
     <tbody>
-        <% opinions.forEach(function(o) { %>
+        <% users.map(function(user) { %>
+            <% if(user.opinions) { %>
+        <% user.opinions.forEach(function(o) { %>
             <tr>
-                
+               <td><strong><%= user.name %></strong></td>
                 <td><strong><%= o.itemName %></strong></td>
                 <td><%= o.rating %></td>
                 <td><%= o.caption %></td>
@@ -41,9 +21,10 @@
                 <td><button><a href="/opinions/<%= o._id %>">Details</a></button></td>    
             </tr>
         <% }); %>
-   
+        <% }; %>
+    <% }); %>
+
     </tbody>
 </table>
 
-</body>
-</html>
+<%- include('../partials/footer') %>
