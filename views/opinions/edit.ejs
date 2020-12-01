@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
     
-    <form action="/opinions/<%= opinionId %>?_method=PUT" method="POST">
-        <label><strong>Rating:</strong><select name="rating">
+    <form class="newopinion" action="/opinions/<%= opinionId %>?_method=PUT" method="POST">
+        <label><strong>Rating:</strong><select class="browser-default" name="rating">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -13,6 +13,6 @@
         <input type="text" name="caption" placeholder="Your NEW Opinion">
         <input type="submit" value="Update Opinion"> 
     </form>
-    <button><a href="/opinions">NVM</a></button>
+    <button><a href="/opinions">nevermind</a></button>
 
 <%- include('../partials/footer') %>

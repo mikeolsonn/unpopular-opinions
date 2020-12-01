@@ -1,33 +1,42 @@
 <%- include('../partials/header') %>
+<h6 class="pagetitle">Everyone has one</h6>
+  
+<div class="newopinion">
     <form action="/opinions" method="POST">
-        <label>Item
+        <label class="item">Item
             <input type="text" name="itemName">
         </label>
-        <label>Category
-            <select name="category">
+        <label>Category</label>
+        <div class="select">
+            <select class="browser-default" name="category">
                 <option value="Food">Food</option>
                 <option value="Music">Music</option>
                 <option value="TV/Movies">TV/Movies</option>
                 <option value="Fashion">Fashion</option>
                 <option value="Miscellaneous">Miscellaneous</option>
+            
             </select>
-        </label>
-        <label>Rating
-            <select name="rating">
+        </div>
+        
+
+        <label>Rating</label>
+        <div class="select">
+            <select class="browser-default" name="rating">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
+        </div>
             
-        </label>
+        
         <input type="text" name="caption" placeholder="Your Opinion">
-        <!-- <label>Image
-            <input type="file" name="image">
-        </label> -->
+
         <input type="submit" value="Post">
+        <button><a href="/opinions">Back</a></button>
     </form>
-    <a href="/opinions">Nevermind</a>
+</div>
+    
 
 <%- include('../partials/footer') %>

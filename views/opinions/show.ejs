@@ -1,6 +1,12 @@
 <%- include('../partials/header') %>
-    <h1><%= opinion.itemName %></h1>
-    <section>
+
+
+
+
+
+
+    <h1 id="itemname"><%= opinion.itemName %></h1>
+    <section class="newopinion">
        <label>Rating:</label>
        <div><%= opinion.rating %></div>
        <label>Opinion: <div><%= opinion.caption %></div></label> </label>
@@ -12,9 +18,10 @@
        <form action="/opinions/<%= opinion._id %>" method="POST">
        <input type="text" name="review" placeholder="Add a Comment">
     </select>
+   
     <input type="submit" value="Add Comment">
 
        <a href="/opinions/<%= opinion._id %>/edit">Change Your Opinion</a> 
-
-    </section>
+      </section>
+   
     <%- include('../partials/footer') %>

@@ -37,7 +37,7 @@ function index(req, res) {
       console.log(`user: ${user}`);
       
     Opinion.create(req.body, function(err, opinion) {
-      user.opinions.push(opinion._id);
+      user.opinions.unshift(opinion._id);
     user.save(function(err) {
   
         if(err) {
