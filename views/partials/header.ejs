@@ -4,23 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+ 
   <title><%= title %></title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel='stylesheet' href='/css/style.css' />
+
+
 </head>
 <body>
-  <nav>
-      <h3>(UN)POPULAR OPINIONS</h3>
-      <ul>
-          <li>
-      <% if(user) { %>
-        <a href="/logout"><i class="material-icons left"></i>Logout</a>
-      <% } else { %>
-        <a href="/auth/google"><i class="material-icons left"></i>Login With Google</a>
-      <% } %>
-    </li>
-    <li><a href="/opinions/new" <%- title === 'Add Opinion' ? 'class="active"' : '' %>>Add Opinion</a></li>
-    <li><a href="/opinions" <%- title === 'All Opinions' ? 'class="active"' : '' %>>All Opinions</a></li>
-</ul>
-  </nav>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">(UN)POPULAR OPINIONS</a>
+
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= user.name %></li>
+            <li>
+                <% if(user) { %>
+                    
+                  <a href="/logout">Logout</a></i>
+                <% } else { %>
+                  <a href="/auth/google">Login With Google</a></i>
+                <% } %>
+              </li>
+              <li><a href="/opinions/new" <%- title === 'Add Opinion' ? 'class="active"' : '' %>>Add Opinion</a></li>
+              <li><a href="/opinions" <%- title === 'All Opinions' ? 'class="active"' : '' %>>All Opinions</a></li>
+          </ul>
+        </div>
+      </nav>
   <main>
     <h1><%= title %></h1>
+   

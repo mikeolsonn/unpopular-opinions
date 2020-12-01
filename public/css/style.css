@@ -1,0 +1,25 @@
+nav {
+    background-color: #8686e6cd;
+}
+
+nav > div > a {
+    color: black;
+}
+
+.title {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login {
+    width: 100px;
+    height: 50px;
+    font-size: 10px;
+}
+
+.brand-logo {
+    font-family: 'Righteous', cursive;
+}

@@ -1,30 +1,32 @@
 <%- include('../partials/header') %>
-<table>
-    <thead>
-        
-        <th></th>
-        <th></th>
-        <th>Rating</th>
-        <th>Opinion</th>
-    </thead>
-    <tbody>
-        <% users.map(function(user) { %>
-            <% if(user.opinions) { %>
-        <% user.opinions.forEach(function(o) { %>
-            <tr>
-               <td><strong><%= user.name %></strong></td>
-                <td><strong><%= o.itemName %></strong></td>
-                <td><%= o.rating %></td>
-                <td><%= o.caption %></td>
-                <td><form action="/opinions/<%= o._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button></form></td>
-                <td><button><a href="/opinions/<%= o._id %>">Details</a></button></td>    
-            </tr>
-        <% }); %>
-        <% }; %>
-    <% }); %>
 
-    </tbody>
-</table>
+<% users.map(function(user) { %>
+    <% if(user.opinions) { %>
+<% user.opinions.forEach(function(o) { %>
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= o.itemName %></span>
+          <p><strong><%= user.name %></strong></p>
+          <p><%= o.rating %></p>
+          <p><%= o.caption %></p>
+        </div>
+        <div class="card-action">
+
+            <form action="/opinions/<%= o._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button></form>
+
+          <a href="/opinions/<%= o._id %>">Comment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }); %>
+  <% }; %>
+<% }); %>
+
+
+
 
 <%- include('../partials/footer') %>
