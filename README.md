@@ -1,12 +1,26 @@
-# (Un)Popular Opinions
+# :zany_face: (Un)Popular Opinions
 
 Every person has an unpopular opinion (or "hot take") on something, but not every person feels comfortable sharing those opinions on regular social media platforms.  This express app is a designated place for anybody to do just that.  No account needed, just login with google, share your opinion and comment on others'.  
 
-## Screenshots
-
+## :camera_flash: Screenshots
+<label>Title / Sign In Page</label>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/SxZ5GdB/Screen-Shot-2020-12-01-at-6-27-36-PM.png" alt="Screen-Shot-2020-12-01-at-6-27-36-PM" border="0"></a>
 
-## Technologies Used
+<label>All Opinions / Homepage</label>
+<a href="https://ibb.co/MBGKSnw"><img src="https://i.ibb.co/tLxnKBj/Screen-Shot-2020-12-01-at-6-28-04-PM.png" alt="Screen-Shot-2020-12-01-at-6-28-04-PM" border="0"></a>
+
+<label>Opinion Details</label>
+<a href="https://ibb.co/87VssRZ"><img src="https://i.ibb.co/FDt33fT/Screen-Shot-2020-12-01-at-6-28-58-PM.png" alt="Screen-Shot-2020-12-01-at-6-28-58-PM" border="0"></a>
+
+<label>Change Your Opinion</label>
+<a href="https://ibb.co/qJmJWjZ"><img src="https://i.ibb.co/xFzFfL4/Screen-Shot-2020-12-01-at-6-29-23-PM.png" alt="Screen-Shot-2020-12-01-at-6-29-23-PM" border="0"></a>
+
+
+<label>Add Opinion</label>
+<a href="https://ibb.co/tq9vyV6"><img src="https://i.ibb.co/F5FyGR1/Screen-Shot-2020-12-01-at-6-29-49-PM.png" alt="Screen-Shot-2020-12-01-at-6-29-49-PM" border="0"></a>
+
+
+## :computer: Technologies Used
 
 <ul>
 <li>Node.JS</li>
@@ -25,7 +39,7 @@ Every person has an unpopular opinion (or "hot take") on something, but not ever
 
 Add your own opinion or comment on other users' opinions!
 
-## Next Steps
+## :arrow_right: Next Steps
 
 <ul>
 <li>More User Restrictions / Actions</li>
